@@ -39,7 +39,7 @@ define ('LANG_CHARSET', '');
  * Software version @see svn info :
  */
 define ('SOFTNAME', "BluePortail GUI"); 
-define ('VERSION', "4884S");
+define ('VERSION', "CE201603");
 
 /**
  * Where to find the documentations ?
@@ -54,7 +54,7 @@ define ('TITLE', "BluePortail");
 /**
  * Bottom sentence
  */
-define ('COPYRIGHT', "Copyright 2007 Blue Eye Video All Rights Reserved");
+define ('COPYRIGHT', "Codeffekt 2016");
 
 define('SESSIONTIME', 3600);
 define('CSS', "styles/blueeyevideo.css");

@@ -19,25 +19,25 @@ if($params["action"] == "Apply")
   // check if we have to insert or update  
   if(isset($params["id"]))
     {
-      $frame = processUpdate("Client", "Clients.php", $params, processClientUpdateQuery);
+      $frame = processUpdate("Client", "Clients.php", $params, 'processClientUpdateQuery');
     }
   else
     {
-      $frame = processInsert("Client", "ClientsEdit.php", $params, processClientInsertQuery);
+      $frame = processInsert("Client", "ClientsEdit.php", $params, 'processClientInsertQuery');
     }
 }
 else if($params["action"] == "Delete")
 {
-  $frame = processDelete("Client", "Clients.php", $params, processClientDeleteQuery);
+  $frame = processDelete("Client", "Clients.php", $params, 'processClientDeleteQuery');
   $frame .= processRevokeKeys($params);
 }
 else if($params["action"] == "edit")
 {
-  $frame = getEditForm("Client", "Clients.php", "ClientsEdit.php", $params, getClientData, getClientInputs);
+  $frame = getEditForm("Client", "Clients.php", "ClientsEdit.php", $params, 'getClientData', 'getClientInputs');
 }
 else if($params["action"] == "create")
 {
-  $frame = getCreateForm("Client", "Clients.php", "ClientsEdit.php", $params, getClientInputs);
+  $frame = getCreateForm("Client", "Clients.php", "ClientsEdit.php", $params, 'getClientInputs');
 }
 
 echo $frame;

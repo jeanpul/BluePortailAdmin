@@ -2,12 +2,13 @@
 
 function getEditForm($object, $pageCancel, $pageAction, $params, $dataFunction, $inputFunction)
 {
-  $params = $dataFunction($params);
+  $id = $params["id"];
+  $params = call_user_func($dataFunction, $params);
   $str  = "<div id=\"formWide\" class=\"Boxes\">\n";
   $str .= "<h2>Edit $object</h2>\n";
   $str .= "<form action=\"$pageAction\">\n";
-  $str .= "<input type=\"hidden\" name=\"id\" value=\"" . $params["id"] . "\" />\n";
-  $str .= $inputFunction($params);
+  $str .= "<input type=\"hidden\" name=\"id\" value=\"$id\" />\n";
+  $str .= call_user_func($inputFunction, $params);
   $str .= "<div class=\"Bars\" id=\"buttons\">\n";
   $str .= "<ul>\n";
   $str .= "<li><input type=\"submit\" name=\"action\" value=\"Apply\" /></li>\n";
@@ -24,7 +25,7 @@ function getCreateForm($object, $pageCancel, $pageAction, $params, $inputFunctio
   $str  = "<div id=\"formWide\" class=\"Boxes\">\n";
   $str .= "<h2>Add a new $object</h2>\n";
   $str .= "<form action=\"$pageAction\">\n";
-  $str .= $inputFunction($params);
+  $str .= call_user_func($inputFunction, $params);
   $str .= "<div class=\"Bars\" id=\"buttons\">\n";
   $str .= "<ul>\n";
   $str .= "<li><input type=\"submit\" name=\"action\" value=\"Apply\" /></li>\n";
@@ -37,7 +38,7 @@ function getCreateForm($object, $pageCancel, $pageAction, $params, $inputFunctio
 
 function processUpdate($object, $pageListName, $params, $processUpdateQuery)
 {
-  $processUpdateQuery($params);
+  call_user_func($processUpdateQuery, $params);
   $str  = "<div id=\"Message\" class=\"Boxes\">\n";
   $str .= "<h2>$object updated.</h2>\n";
   $str .= "</div>\n";
@@ -46,7 +47,7 @@ function processUpdate($object, $pageListName, $params, $processUpdateQuery)
 
 function processInsert($object, $pageListName, $params, $processInsertQuery)
 {
-  $processInsertQuery($params);
+  call_user_func($processInsertQuery, $params);
   $str  = "<div id=\"Message\" class=\"Boxes\">\n";
   $str .= "<h2>$object created. Click <a href=\"$pageListName?action=create\">here</a> to create a new $object.</h2>\n";
   $str .= "</div>\n";
@@ -55,7 +56,7 @@ function processInsert($object, $pageListName, $params, $processInsertQuery)
 
 function processDelete($object, $pageListName, $params, $processDeleteQuery)
 {
-  $processDeleteQuery($params);
+  call_user_func($processDeleteQuery, $params);
   $str  = "<div id=\"Message\" class=\"Boxes\">\n";
   $str .= "<h2>$object deleted.</h2>\n";
   $str .= "</div>\n";
@@ -72,6 +73,11 @@ function errorInput($msg)
 
 function getClientInputs($params)
 {
+  $params = array_merge(array( "clientName" => "",
+			       "clientId" => "",
+			       "email" => "",
+			       "server" => "" ), $params);
+
   global $plang;
   $str = "<table>\n";
   $readonly = "";
@@ -121,11 +127,13 @@ function getSensorInputs($params)
   global $plang;
   $str = "<table>\n";
   $readonly = "";
+  $ref = "";
   if(isset($params["ref"]))
     {
+      $ref = $params["ref"];
       $readonly = "readonly";
     }
-  $str .= "<tr><td>Ref :</td><td><input type=\"text\" name=\"ref\" value=\"" . $params["ref"] . "\" $readonly></td></tr>\n";
+  $str .= "<tr><td>Ref :</td><td><input type=\"text\" name=\"ref\" value=\"" . $ref . "\" $readonly></td></tr>\n";
   $clients = $plang->getClients($params);
   $str .= "<tr><td>Clients :</td><td>";
   $str .= "<select name=\"clients[]\" multiple>\n";
@@ -190,14 +198,21 @@ function processSensorDeleteQuery($params)
 
 function getKeyInputs($params)
 {
+  $params = array_merge(array("startDate" => "",
+			      "endDate" => "",
+			      "propName" => "",
+			      "propEmail" => "" ), $params);
+
   global $plang;
   $str = "<table>\n";
   $readonly = "";
+  $keyId = "";
   if(isset($params["keyId"]))
     {
+      $keyId = $params["keyId"];
       $readonly = "readonly";
     }
-  $str .= "<tr><td>KeyId :</td><td><input type=\"text\" name=\"keyId\" value=\"" . $params["keyId"] . "\" $readonly></td></tr>\n";
+  $str .= "<tr><td>KeyId :</td><td><input type=\"text\" name=\"keyId\" value=\"" . $keyId . "\" $readonly></td></tr>\n";
   if(isset($params["keyId"]))
     {
       $str .= "<tr><td>ClientId :</td><td><input type=\"text\" name=\"clientId\" value=\"" . $params["clientId"] . "\" $readonly></td></tr>\n";

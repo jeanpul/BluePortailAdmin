@@ -25,20 +25,13 @@ include_once("preInc.inc");
 <td><ul>
 
 <li><a id="keys" href="Keys.php">Keys</a></li>
-<li><a id="help" target="_blank" rel="nofollow" href="help.php">Inline help</a></li>
+<li><a id="help" target="_blank" rel="nofollow" href="https://github.com/jeanpul/BluePortailAdmin/wiki">Help</a></li>
 
 </ul></td>
 
 </tr>
 </table>
 
-</div>
-
-<div id="barHome">
-<form action="/cgi-bin/BlueSystem/index.cgi" method="get">
-<input type="hidden" name="action" value="Cancel" />
-<button id="Home" type="submit" value="Back to Main menu" >Back to Main menu (BlueSystem)</button>
-</form>
 </div>
 
 <?php

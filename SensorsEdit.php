@@ -22,24 +22,26 @@ if($params["action"] == "Apply")
     }
   else if(isset($params["id"]))
     {
-      $frame = processUpdate("Sensors", "Sensors.php", $params, processSensorUpdateQuery);
+      $frame = processUpdate("Sensors", "Sensors.php", $params, 'processSensorUpdateQuery');
     }
   else
     {
-      $frame = processInsert("Sensors", "SensorsEdit.php", $params, processSensorInsertQuery);
+      $frame = processInsert("Sensors", "SensorsEdit.php", $params, 'processSensorInsertQuery');
     }
 }
 else if($params["action"] == "Delete")
 {
-  $frame = processDelete("Sensor", "Sensors.php", $params, processSensorDeleteQuery);
+  $frame = processDelete("Sensor", "Sensors.php", $params, 'processSensorDeleteQuery');
 }
 else if($params["action"] == "edit")
 {
-  $frame = getEditForm("Sensor", "Sensors.php", "SensorsEdit.php", $params, getSensorData, getSensorInputs);
+  $frame = getEditForm("Sensor", "Sensors.php", "SensorsEdit.php", $params, 'getSensorData', 
+		       'getSensorInputs');
 }
 else if($params["action"] == "create")
 {
-  $frame = getCreateForm("Sensor", "Sensors.php", "SensorsEdit.php", $params, getSensorInputs);
+  $frame = getCreateForm("Sensor", "Sensors.php", "SensorsEdit.php", $params, 
+			 'getSensorInputs');
 }
 
 echo $frame;

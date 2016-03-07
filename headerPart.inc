@@ -15,8 +15,7 @@
 <div id="top">
 <table class="head">
 <tr>
-<td><div id="logo"><img src="BlueSystem/styles/LogoStyle.gif" alt="logo BEV"/></div></td>
-<td><div align="center"><h3>BlueCount Portail Rev. <?php echo VERSION ?></h3></div></td>
+<td><div align="left"><h3>BlueCount Portail Rev. <?php echo VERSION ?></h3></div></td>
 </tr>
 </table>
 </div>

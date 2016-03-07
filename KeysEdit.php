@@ -19,24 +19,24 @@ if($params["action"] == "Apply")
   // check if we have to insert or update  
   if(isset($params["id"]))
     {
-      $frame = processUpdate("Key", "Keys.php", $params, processKeyUpdateQuery);
+      $frame = processUpdate("Key", "Keys.php", $params, 'processKeyUpdateQuery');
     }
   else
     {
-      $frame = processInsert("Key", "KeysEdit.php", $params, processKeyInsertQuery);
+      $frame = processInsert("Key", "KeysEdit.php", $params, 'processKeyInsertQuery');
     }
 }
 else if($params["action"] == "Delete")
 {
-  $frame = processDelete("Key", "Keys.php", $params, processKeyDeleteQuery);
+  $frame = processDelete("Key", "Keys.php", $params, 'processKeyDeleteQuery');
 }
 else if($params["action"] == "edit")
 {
-  $frame = getEditForm("Key", "Keys.php", "KeysEdit.php", $params, getKeyData, getKeyInputs);
+  $frame = getEditForm("Key", "Keys.php", "KeysEdit.php", $params, 'getKeyData', 'getKeyInputs');
 }
 else if($params["action"] == "create")
 {
-  $frame = getCreateForm("Key", "Keys.php", "KeysEdit.php", $params, getKeyInputs);
+  $frame = getCreateForm("Key", "Keys.php", "KeysEdit.php", $params, 'getKeyInputs');
 }
 
 echo $frame;

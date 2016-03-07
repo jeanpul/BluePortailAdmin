@@ -2,7 +2,7 @@
 
 include_once('Config.inc');
 
-loadBluePHP();
+//loadBluePHP();
 
 include_once("BluePHP/Languages.inc");
 
