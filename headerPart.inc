@@ -4,7 +4,7 @@
 <title>BlueEyeVideo system - main page</title>
 <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
 <link rel="stylesheet" type="text/css" href="styles/blueeyevideo.css"/>
-<link rel="stylesheet" type="text/css" href="/BlueSystem/styles/StyleBlueEyeVideo.css"/>
+<link rel="stylesheet" type="text/css" href="BlueSystem/styles/StyleBlueEyeVideo.css"/>
 <script language="JavaScript" SRC="js/AnchorPosition.js"></script>
 <script language="JavaScript" SRC="js/PopupWindow.js"></script>
 <script language="JavaScript" SRC="js/date.js"></script>
@@ -15,7 +15,7 @@
 <div id="top">
 <table class="head">
 <tr>
-<td><div id="logo"><img src="/BlueSystem/styles/LogoStyle.gif" alt="logo BEV"/></div></td>
+<td><div id="logo"><img src="BlueSystem/styles/LogoStyle.gif" alt="logo BEV"/></div></td>
 <td><div align="center"><h3>BlueCount Portail Rev. <?php echo VERSION ?></h3></div></td>
 </tr>
 </table>
