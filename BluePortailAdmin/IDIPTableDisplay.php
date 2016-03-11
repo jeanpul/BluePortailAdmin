@@ -16,9 +16,12 @@ $params = array_merge( array( "bluecountId" => false,
 
 $data = $plang->getIPTable($params);
 
+$str = "";
+
 if($data)
   {
-    $str = "<table border='1'>\n";
+    $str = "<div id=\"SensorList\" class=\"Boxes\">\n";
+    $str .= "<table border='1'>\n";
     $str .= "<tr><th>bluecountId</th><th>clientId</th><th>timestamp</th><th>IP</th><th>name</th></tr>\n";
     foreach($data as $k => $v)
       {
@@ -31,15 +34,30 @@ if($data)
 	$str .= "</tr>\n";
       }
     $str .= "</table>\n";
-
-    echo "<div id=\"SensorList\" class=\"Boxes\">\n";
-    echo $str;
-    echo "</div>\n";
+    $str .= "</div>\n";
   }
 else 
   {
-    die("Request for data in GrabIPTable failed");
+    $str = "<p>No data received from declared sensors</p>";
   }
+
+$frame = "<div id=\"formWide\">\n";
+$frame .= $str;
+$frame .= "</div>\n";
+
+echo $frame;
+
+?>
+
+<div id="barHome">
+<form action="index.php" method="get">
+<input type="hidden" name="action" value="Cancel" />
+<button id="Home" type="submit" value="Back to Main menu" >Back to Main menu</button>
+</form>
+</div>
+
+
+<?php
 
 include_once("postInc.inc");
 

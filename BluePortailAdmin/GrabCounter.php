@@ -1,6 +1,10 @@
 <?php
 
-include_once("preInc.inc");
+include_once('Config.inc');
+include_once("BluePortailLang.inc");
+
+// create connexion to the BluePortail data
+$plang = new BluePortailLang();
 
 /**
  * Read and process a BlueHTTP request for B-Top or B-Queue sensor
@@ -112,6 +116,6 @@ foreach($clients as $obj)
   $plang->updateIPTable($iptable);
 }
 
-include_once("postInc.inc");
+$plang->close();
 
 ?>
