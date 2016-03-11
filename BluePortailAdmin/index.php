@@ -29,6 +29,12 @@ include_once("preInc.inc");
 
 </ul></td>
 
+<td><ul>
+
+<li><a id="log" href="IDIPTableDisplay.php">Sensor IP status</a></li>
+
+</ul></td>
+
 </tr>
 </table>
 
