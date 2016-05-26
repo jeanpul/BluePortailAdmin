@@ -22,7 +22,7 @@ if($data)
   {
     $str = "<div id=\"SensorList\" class=\"Boxes\">\n";
     $str .= "<table border='1'>\n";
-    $str .= "<tr><th>bluecountId</th><th>clientId</th><th>timestamp</th><th>IP</th><th>name</th></tr>\n";
+    $str .= "<tr><th>bluecountId</th><th>clientId</th><th>timestamp</th><th>IP</th><th>name</th><th>lastcountertime</th></tr>\n";
     foreach($data as $k => $v)
       {
 	$str .= "<tr>\n";
@@ -31,6 +31,7 @@ if($data)
 	$str .= "<td>" . $v['lasttimestamp'] . "</td>\n";
 	$str .= "<td>" . $v["lastIP"] . "</td>\n";
 	$str .= "<td>" . $v['name'] . "</td>\n";
+    $str .= "<td>" . $v['lastCounterTime'] . "</td>\n";
 	$str .= "</tr>\n";
       }
     $str .= "</table>\n";

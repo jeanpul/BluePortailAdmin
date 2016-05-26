@@ -531,7 +531,8 @@ class BluePortailLang
   {
     $query = "replace into GrabIPTable values(\"" . $params["bluecountId"] 
       . "\",\"" . $params["clientId"] . "\",\"" . $params["lasttimestamp"] 
-      . "\",\"" . $params["laststatus"] . "\",\"" . $params["lastIP"] .  "\")";
+      . "\",\"" . $params["laststatus"] . "\",\"" . $params["lastIP"]
+      . "\",\"" . $params["lastCounterTime"] . "\")";
     $result = $this->configDB->query($query);
     $result->freeResult();
     return array($params);

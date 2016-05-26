@@ -78,7 +78,8 @@ foreach($clients as $obj)
 		    "clientId" => $client[0]["clientId"],
 		    "lasttimestamp" => date('Y:m:d H:i:s'),
 		    "laststatus" => "not activated",
-		    "lastIP" => "ND" );
+            "lastIP" => "ND",
+            "lastCounterTime" => "ND");
 
   // if not activated send a message to the maintenance server
   if($obj["isActivated"])
@@ -111,6 +112,7 @@ foreach($clients as $obj)
 	      $iptable["laststatus"] = "BlueHTTP request forwarded";
 	    }
 	  $iptable["lastIP"] = $_SERVER["REMOTE_ADDR"];
+      $iptable["lastCounterTime"] = $params["type"] == 145 ? $params["timestamp"] : $params["timeStart"];
 	}
     }
   $plang->updateIPTable($iptable);
